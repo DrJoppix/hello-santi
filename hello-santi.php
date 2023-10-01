@@ -167,7 +167,27 @@ function hello_santi_insulti_by_gender( $gender ) {
 	Neoborocillina
 	merdoso
 	fascista
-	amico delle guardie";
+	amico delle guardie
+	lazzarone
+	sciamannato
+	buzzurro
+	malandrino
+	manigoldo
+	pusillanime
+	lestofante
+	mascalzone
+	citrullo
+	canaglia
+	che se ne va affanculo
+	bustadipiscio
+	cacasotto
+	canacciodidio
+	coprofago
+	che gioca con la croce in modo indecente
+	che passeggia col diobestia
+	comunista
+	schifoso";
+
 	$santa = 
 	" testa di cazzo
 	succhia palle
@@ -193,7 +213,28 @@ function hello_santi_insulti_by_gender( $gender ) {
 	Neoborocillina
 	merdosa
 	fascista
-	amica delle guardie";
+	amica delle guardie
+	lazzarona
+	sciamannata
+	buzzurra
+	malandrina
+	manigolda
+	pusillanime
+	lestofante
+	mascalzona
+	citrulla
+	canaglia
+	meretrice
+	che se ne va affanculo
+	bustadipiscio
+	cacasotto
+	canacciodidio
+	coprofaga
+	che gioca con la croce in modo indecente
+	che passeggia col diobestia
+	comunista
+	schifosa";
+
 	$santi = 
 	" teste di cazzo
 	succhia palle
@@ -219,7 +260,27 @@ function hello_santi_insulti_by_gender( $gender ) {
 	Neoborocillina
 	merdosi
 	fascisti
-	amici delle guardie";
+	amici delle guardie
+	lazzaroni
+	sciamannati
+	buzzurri
+	malandrini
+	manigoldi
+	pusillanimi
+	lestofanti
+	mascalzoni
+	citrulli
+	canaglie
+	che se ne vanno affanculo
+	bustedipiscio
+	cacasotto
+	canaccididio
+	coprofaghi
+	che giocano con la croce in modo indecente
+	che passeggiano col diobestia
+	comunisti
+	schifosi";
+
 	$sante = 
 	" teste di cazzo
 	succhia palle
@@ -245,7 +306,27 @@ function hello_santi_insulti_by_gender( $gender ) {
 	Neoborocillina
 	merdose
 	fasciste
-	amiche delle guardie";
+	amiche delle guardie
+	lazzarone
+	sciamannate
+	buzzurre
+	malandrine
+	manigolde
+	pusillanimi
+	lestofanti
+	mascalzone
+	citrulle
+	canaglie
+	meretrici
+	che se ne vanno affanculo
+	bustedipiscio
+	cacasotto
+	cagnaccedidio
+	coprofaghe
+	che giocano con la croce in modo indecente
+	che passeggiano col diobestia
+	comuniste
+	schifose";
 
 	switch ($gender) {
 		case 'FF':
