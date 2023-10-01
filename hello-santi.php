@@ -1,14 +1,14 @@
 <?php
 /**
  * @package HelloSanti
- * @version 1.0.2
+ * @version 1.0.3
  */
 /*
 Plugin Name: Hello Santi
 GitHub URI: https://github.com/DrJoppix/hello-santi
 Description: This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words of the famous Jesus Christ: Hello, Santi. When activated it will randomly insulte the saint of the day in the upper right of your admin screen on every page.
 Author: DrJoppix
-Version: 1.0.2
+Version: 1.0.3
 Author URI: https://github.com/DrJoppix
 */
 
