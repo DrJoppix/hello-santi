@@ -27,6 +27,17 @@ function enqueue_scripts_dashboard() {
     wp_enqueue_style( 'hello-santi-style', HELLO_SANTI_URL_CSS . 'hello-santi.css', array(), HELLO_SANTI_VERSION, 'all' );
 }
 
+define( 'HELLO_SANTI_DEFAULT', array(
+	"nome"=> "San Padre Pio",
+	"tipologia"=> "Presbitero e religioso",
+	"data"=> "25-05-1887",
+	"default"=> "1",
+	"permalink"=> "",
+	"urlimmagine"=> "",
+	"descrizione"=> "Truffatore. Cioè volevo dire bravissima persona che non ha affatto alimentato un business ridicolo. Curiosità: la sera si picchiava col Diavolo",
+	) 
+);
+
 function hello_dolly_get_lyric() {
 	/** These are the lyrics to Hello Dolly */
 	$lyrics = "Hello, Dolly
@@ -66,11 +77,67 @@ Dolly'll never go away again";
 }
 // This just echoes the chosen line, we'll position it later
 function hello_santi() {
-	$chosen = hello_dolly_get_lyric();
+	$chosen = hello_santi_get_burla();
 	echo "<p id='dolly'>$chosen</p>";
 }
 
 // Now we set that function up to execute when the admin_notices action is called
 add_action( 'admin_notices', 'hello_santi' );
+
+function hello_santi_get_burla() {
+	$response = wp_remote_get("https://www.santodelgiorno.it/santi.json");
+	/**
+	 * Restituise un array di santi e beati, ognuno che segue questa struttura:
+	 * 
+	 * nome
+	 * tipologia
+	 * data
+	 * default
+	 * permalink
+	 * urlimmagine
+	 * descrizione
+	 */
+	$datas = json_decode( $response['body'] );
+	$index = mt_rand( 0, count( $datas ) - 1 );
+	$santo = isset( $datas[$index] ) ? $datas[$index] : HELLO_SANTI_DEFAULT;
+	$gender = get_santo_gender( $santo->nome );
+	// And then randomly choose a line
+	return $santo->nome;
+}
+
+function get_santo_gender( $nome ){
+	$prefix = explode( " ", $nome )[0];
+
+	switch ($prefix) {
+		case 'Santa':
+		case 'santa':
+		case 'Beata':
+		case 'beata':
+			return "F";
+			break;
+
+		case 'Sante':
+		case 'sante':
+		case 'Beate':
+		case 'beate':
+			return "FF";
+			break;
+
+		case 'Santi':
+		case 'santi':
+		case 'Beati':
+		case 'beati':
+			return "MM";
+			break;
+
+		case 'Santo':
+		case 'santo':
+		case 'Beato':
+		case 'beato':
+		default:
+			return "M";
+			break;
+	}
+}
 
 ?>
