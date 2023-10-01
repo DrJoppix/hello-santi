@@ -7,7 +7,7 @@
 Plugin Name: Hello Santi
 GitHub URI: https://github.com/DrJoppix/hello-santi
 Description: This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words of the famous Jesus Christ: Hello, Santi. When activated it will randomly insulte the saint of the day in the upper right of your admin screen on every page.
-Author: Drjoppix
+Author: DrJoppix
 Version: 1.0.1
 Author URI: https://github.com/DrJoppix
 */
@@ -103,7 +103,7 @@ function hello_santi_get_burla() {
 	$gender = get_santo_gender( $santo->nome );
 	$burla = hello_santi_insulti_by_gender( $gender );
 	// And then randomly choose a line
-	return $santo->nome . $burla;
+	return $santo->nome . ' ' .$burla;
 }
 
 function get_santo_gender( $nome ){
@@ -142,191 +142,10 @@ function get_santo_gender( $nome ){
 }
 
 function hello_santi_insulti_by_gender( $gender ) {
-	$santo = 
-	" testa di cazzo
-	succhia palle
-	faccia di cazzo
-	cesso di merda
-	sucaminchia
-	inculatore di capre
-	impanato nella merda
-	buttaniere
-	bagasciaro
-	diarrea di elefante
-	pederasta
-	autistico
-	scemo di merda
-	, mannaggia a te e al clero
-	urlatore di Porcoddii
-	lanciatore di Madonne
-	parassita
-	cane
-	ladro di biciclette
-	sciacallo
-	inventore dei blocchi Gutenberg
-	Neoborocillina
-	merdoso
-	fascista
-	amico delle guardie
-	lazzarone
-	sciamannato
-	buzzurro
-	malandrino
-	manigoldo
-	pusillanime
-	lestofante
-	mascalzone
-	citrullo
-	canaglia
-	che se ne va affanculo
-	bustadipiscio
-	cacasotto
-	canacciodidio
-	coprofago
-	che gioca con la croce in modo indecente
-	che passeggia col diobestia
-	comunista
-	schifoso";
-
-	$santa = 
-	" testa di cazzo
-	succhia palle
-	faccia di cazzo
-	cessa di merda
-	sucaminchia
-	spompinatrice di capre
-	impanata nella merda
-	buttana
-	bagascia
-	diarrea di elefante
-	pederasta
-	autistica
-	scema di merda
-	, mannaggia a te e al clero
-	urlatrice di Porcoddii
-	lanciatrice di Madonne
-	parassita
-	cagna
-	ladra di biciclette
-	sciacalla
-	inventrice dei blocchi Gutenberg
-	Neoborocillina
-	merdosa
-	fascista
-	amica delle guardie
-	lazzarona
-	sciamannata
-	buzzurra
-	malandrina
-	manigolda
-	pusillanime
-	lestofante
-	mascalzona
-	citrulla
-	canaglia
-	meretrice
-	che se ne va affanculo
-	bustadipiscio
-	cacasotto
-	canacciodidio
-	coprofaga
-	che gioca con la croce in modo indecente
-	che passeggia col diobestia
-	comunista
-	schifosa";
-
-	$santi = 
-	" teste di cazzo
-	succhia palle
-	facce di cazzo
-	cessi di merda
-	sucaminchia
-	inculatori di capre
-	impanati nella merda
-	buttanieri
-	bagasciari
-	diarrea di elefante
-	pederasti
-	autistici
-	scemi di merda
-	, mannaggia a te e al clero
-	urlatori di Porcoddii
-	lanciatori di Madonne
-	parassiti
-	cani
-	ladri di biciclette
-	sciacalli
-	inventori dei blocchi Gutenberg
-	Neoborocillina
-	merdosi
-	fascisti
-	amici delle guardie
-	lazzaroni
-	sciamannati
-	buzzurri
-	malandrini
-	manigoldi
-	pusillanimi
-	lestofanti
-	mascalzoni
-	citrulli
-	canaglie
-	che se ne vanno affanculo
-	bustedipiscio
-	cacasotto
-	canaccididio
-	coprofaghi
-	che giocano con la croce in modo indecente
-	che passeggiano col diobestia
-	comunisti
-	schifosi";
-
-	$sante = 
-	" teste di cazzo
-	succhia palle
-	facce di cazzo
-	cesse di merda
-	sucaminchia
-	spompinatrici di capre
-	impanate nella merda
-	buttane
-	bagascie
-	diarrea di elefante
-	pederaste
-	autistiche
-	sceme di merda
-	, mannaggia a te e al clero
-	urlatrici di Porcoddii
-	lanciatrici di Madonne
-	parassiti
-	cagne
-	ladre di biciclette
-	sciacalle
-	inventrice dei blocchi Gutenberg
-	Neoborocillina
-	merdose
-	fasciste
-	amiche delle guardie
-	lazzarone
-	sciamannate
-	buzzurre
-	malandrine
-	manigolde
-	pusillanimi
-	lestofanti
-	mascalzone
-	citrulle
-	canaglie
-	meretrici
-	che se ne vanno affanculo
-	bustedipiscio
-	cacasotto
-	cagnaccedidio
-	coprofaghe
-	che giocano con la croce in modo indecente
-	che passeggiano col diobestia
-	comuniste
-	schifose";
+	$santo = file_get_contents(HELLO_SANTI_DIR . 'burle/santo.txt');
+	$santa = file_get_contents(HELLO_SANTI_DIR . 'burle/santa.txt');
+	$santi = file_get_contents(HELLO_SANTI_DIR . 'burle/santi.txt');
+	$sante = file_get_contents(HELLO_SANTI_DIR . 'burle/sante.txt');;
 
 	switch ($gender) {
 		case 'FF':
