@@ -38,50 +38,11 @@ define( 'HELLO_SANTI_DEFAULT', array(
 	) 
 );
 
-function hello_dolly_get_lyric() {
-	/** These are the lyrics to Hello Dolly */
-	$lyrics = "Hello, Dolly
-Well, hello, Dolly
-It's so nice to have you back where you belong
-You're lookin' swell, Dolly
-I can tell, Dolly
-You're still glowin', you're still crowin'
-You're still goin' strong
-We feel the room swayin'
-While the band's playin'
-One of your old favourite songs from way back when
-So, take her wrap, fellas
-Find her an empty lap, fellas
-Dolly'll never go away again
-Hello, Dolly
-Well, hello, Dolly
-It's so nice to have you back where you belong
-You're lookin' swell, Dolly
-I can tell, Dolly
-You're still glowin', you're still crowin'
-You're still goin' strong
-We feel the room swayin'
-While the band's playin'
-One of your old favourite songs from way back when
-Golly, gee, fellas
-Find her a vacant knee, fellas
-Dolly'll never go away
-Dolly'll never go away
-Dolly'll never go away again";
-
-	// Here we split it into lines
-	$lyrics = explode( "\n", $lyrics );
-
-	// And then randomly choose a line
-	return wptexturize( $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ] );
-}
-// This just echoes the chosen line, we'll position it later
 function hello_santi() {
 	$chosen = hello_santi_get_burla();
 	echo "<p id='dolly'>$chosen</p>";
 }
 
-// Now we set that function up to execute when the admin_notices action is called
 add_action( 'admin_notices', 'hello_santi' );
 
 function hello_santi_get_burla() {
@@ -102,12 +63,12 @@ function hello_santi_get_burla() {
 	$santo = isset( $datas[$index] ) ? $datas[$index] : HELLO_SANTI_DEFAULT;
 	$gender = get_santo_gender( $santo->nome );
 	$burla = hello_santi_insulti_by_gender( $gender );
-	// And then randomly choose a line
 	return $santo->nome . ' ' .$burla;
 }
 
 function get_santo_gender( $nome ){
-	$prefix = explode( " ", $nome )[0];
+	$prefix = explode( " ", $nome );
+	$prefix = isset( $prefix[0] ) ? $prefix[0] : 'San';
 
 	switch ($prefix) {
 		case 'Santa':
@@ -131,6 +92,7 @@ function get_santo_gender( $nome ){
 			return "MM";
 			break;
 
+		case 'San':
 		case 'Santo':
 		case 'santo':
 		case 'Beato':
@@ -163,10 +125,7 @@ function hello_santi_insulti_by_gender( $gender ) {
 			break;
 	}
 
-	// Here we split it into lines
 	$response = explode( "\n", $response );
-
-	// And then randomly choose a line
 	return wptexturize( $response[ mt_rand( 0, count( $response ) - 1 ) ] );
 }
 
