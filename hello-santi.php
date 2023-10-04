@@ -75,6 +75,8 @@ function get_santo_gender( $nome ){
 		case 'santa':
 		case 'Beata':
 		case 'beata':
+		case 'Madonna':
+		case 'madonna':
 			return "F";
 			break;
 
@@ -82,6 +84,8 @@ function get_santo_gender( $nome ){
 		case 'sante':
 		case 'Beate':
 		case 'beate':
+		case 'Madonne':
+		case 'madonne':
 			return "FF";
 			break;
 
@@ -97,6 +101,8 @@ function get_santo_gender( $nome ){
 		case 'santo':
 		case 'Beato':
 		case 'beato':
+		case 'Natale':
+		case 'Gesù':
 		default:
 			return "M";
 			break;
